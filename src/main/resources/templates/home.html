@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Acceuil</title>
+    <div th:insert="~{fragments/script-styleFragment.html}"></div>
 </head>
 <body>
+<div th:replace="~{fragments/headerFragment :: header}"></div>
     <section>
 
-        <div>
+        <div class="my-5">
 
-            <h1>Bienvenue sur l'application de demo SpringSecurity</h1>
-            <p th:text="'Bonjour '+ ${#authentication.getPrincipal().username}"></p>
+            <h1 class="text-light my-5 ms-3">Bienvenue sur l'application de demo SpringSecurity</h1>
+            <p class="text-light ms-5" th:text="'Bonjour '+ ${#authentication.getPrincipal().username}"></p>
 
-            <div th:text="${#authentication.getPrincipal()}"></div>
+            <div class="text-light mx-5" th:text="${#authentication.getPrincipal()}"></div>
         </div>
 
 
         <div>
 
-            <h2>Déconnexion avec confirmation (avec methode GET) </h2>
+            <h2 class="text-light my-5 ms-3">Déconnexion avec confirmation (avec methode GET) </h2>
 
-            <a th:href="@{/logout}">
-                <button>
+            <a class="mx-5" th:href="@{/logout}">
+                <button class="px-2">
                     Me déconnecter
                 </button>
             </a>
 
-            <a sec:authorize="hasAuthority('Admin')" th:href="@{/admin}"><button>Acces admin</button></a>
+            <a sec:authorize="hasAuthority('Admin')"  th:href="@{/admin}"><button  class="px-2">Acces admin</button></a>
 
 
 
             <br>
-            <h2> Deconnexion sans confirmation (avec methode POST)</h2>
+            <h2 class="text-light my-5 ms-3"> Deconnexion sans confirmation (avec methode POST)</h2>
 
             <form th:action="@{/logout-processing}" method="post">
                 <!--mise en place du token de sécurité  (permet de vérifié que la perosnne qui soumet le formulaire (POST) et bien celle qui en a fait la demande (GET))     -->
@@ -39,7 +41,7 @@
 
                 <!--  Les champs du formulaire      -->
 
-                <button type="submit">Me déconnecter !</button>
+                <button class="mx-5 px-2" type="submit">Me déconnecter !</button>
             </form>
         </div>
 

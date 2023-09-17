@@ -3,8 +3,10 @@
   <head>
       <meta charset="UTF-8">
       <title>Admin Home</title>
+      <div th:insert="~{fragments/script-styleFragment.html}"></div>
   </head>
   <body>
-    <h1>Bonjour Administrateur!</h1>
+  <div th:replace="~{fragments/headerFragment :: header}"></div>
+    <h1 class="text-light my-5 ms-3">Bonjour Administrateur!</h1>
   </body>
 </html>

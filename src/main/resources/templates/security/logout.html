@@ -3,13 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Déconnexion custom</title>
+        <div th:insert="~{fragments/script-styleFragment.html}"></div>
     </head>
     <body>
+    <div th:replace="~{fragments/headerFragment :: header}"></div>
         <section>
 
             <div>
-                <h1>Vous êtes sur le point de vous déconnecter.</h1>
-                <h2>Vous êtes certains ?</h2>
+                <h1 class="text-light my-5 ms-3">Vous êtes sur le point de vous déconnecter.</h1>
+                <h2 class="text-light my-5 ms-3">Vous êtes certains ?</h2>
             </div>
 
             <form th:action="@{logout-processing}" method="post">
