@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Register Page</title>
+    </head>
+    <body>
+        <div>
+
+            <h1>Créer un compte </h1>
+
+            <form th:object="${user}"  method="post">
+
+                <!--afficher les erreurs au dessus du formulaire sous forme de liste-->
+                <div th:if="${#fields.hasAnyErrors()}">
+
+                    <ul>
+
+                        <li th:each="err: ${#fields.allErrors()}" th:text="${err}" th:value="*{firstname}"></li>
+
+                    </ul>
+
+                </div>
+
+                <div th:if="${userExist}"><p>
+                    Ce nom d'utilisateur existe déjà...</p>
+                </div>
+                <!--mise en place du token de sécurité  (permet de vérifié que la perosnne qui soumet le formulaire (POST) et bien celle qui en a fait la demande (GET))     -->
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+                <!--  Les champs du formulaire      -->
+                <!------------------------------Formulaire--------------------------------------->
+                <div>
+                    <label>Username</label>
+                    <input id="username" type="text" th:field="*{username}" th:value="*{username}"/>
+                    <div th:if="${userExist}">Ce nom d'utilisateur existe déjà...</div>
+                </div>
+
+                <div>
+                    <label>firstname</label>
+                    <input id="firstname" type="text" th:field="*{firstname}" th:value="*{firstname}"/>
+                </div>
+
+                <div>
+                    <label>lastname</label>
+                    <input id="lastname" type="text" th:field="*{lastname}" th:value="*{lastname}"/>
+                </div>
+
+                <div>
+                    <label>password</label>
+                    <input id="password" type="password" th:field="*{password}" th:value="*{password}"/>
+                </div>
+
+                <div>
+                    <label>password confirm</label>
+                    <input id="confirmPassword" type="password" th:field="*{confirmPassword}"  th:value="*{confirmPassword}"/>
+                </div>
+
+                <button type="submit">Valider</button>
+
+            </form>
+
+        </div>
+    </body>
+</html>

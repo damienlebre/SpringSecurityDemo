@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <meta charset="UTF-8">
+      <title>Formulaire de login custom</title>
+  </head>
+  <body>
+    <section>
+
+      <div>
+        <h1>Formulaire de login custom</h1>
+      </div>
+
+      <div th:if="${param.error}">
+        username et/ou mot de passe érroné(s).
+      </div>
+
+      <div th:if="${param.logout}">
+       Vous êtes maintenant déconnecté
+      </div>
+
+      <form th:action="@{/login}" method="post">
+             <!--mise en place du token de sécurité ->NON NECESSAIRE POUR LE LOGIN (CAR DEJA IMPLEMENTE DE BASE)     -->
+
+
+            <!--  Les champs du formulaire      -->
+        <div><label>Username : <input type="text" name="username"/> </label></div>
+        <div><label>Password : <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Connexion"/></div>
+      </form>
+
+
+      <a th:href="@{/register}">Créer un compte</a>
+
+    </section>
+  </body>
+</html>

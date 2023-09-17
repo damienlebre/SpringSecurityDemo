@@ -1,0 +1,26 @@
+<!-- headerFragment.html -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/plages/list(page=1)}">Plages infos</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/plages/list}">Toutes les plages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/plages/add}">Ajouter une plage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/plages/search}">Rechercher une plage</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+</html>

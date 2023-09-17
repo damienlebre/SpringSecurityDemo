@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://thymeleaf.org/extras/spring-security"  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceuil</title>
+</head>
+<body>
+    <section>
+
+        <div>
+
+            <h1>Bienvenue sur l'application de demo SpringSecurity</h1>
+            <p th:text="'Bonjour '+ ${#authentication.getPrincipal().username}"></p>
+
+            <div th:text="${#authentication.getPrincipal()}"></div>
+        </div>
+
+
+        <div>
+
+            <h2>Déconnexion avec confirmation (avec methode GET) </h2>
+
+            <a th:href="@{/logout}">
+                <button>
+                    Me déconnecter
+                </button>
+            </a>
+
+            <a sec:authorize="hasAuthority('Admin')" th:href="@{/admin}"><button>Acces admin</button></a>
+
+
+
+            <br>
+            <h2> Deconnexion sans confirmation (avec methode POST)</h2>
+
+            <form th:action="@{/logout-processing}" method="post">
+                <!--mise en place du token de sécurité  (permet de vérifié que la perosnne qui soumet le formulaire (POST) et bien celle qui en a fait la demande (GET))     -->
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+                <!--  Les champs du formulaire      -->
+
+                <button type="submit">Me déconnecter !</button>
+            </form>
+        </div>
+
+
+    </section>
+
+</body>
+</html>

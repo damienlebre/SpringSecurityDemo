@@ -1,0 +1,13 @@
+package com.dlebre.SecurityDemo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class UserSecurityDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(UserSecurityDemoApplication.class, args);
+	}
+
+}
