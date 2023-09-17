@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/headerFragment :: header}"></div>
-<section>
+<section class="min-vh-100">
 
     <div>
         <h1 class="text-light my-5 ms-3">Formulaire de login custom</h1>
@@ -40,7 +40,7 @@
                     </div>
 
 
-                    <div class="mt-3 mb-5 col-2 offset-lg-3 offset-md-6 offset-sm-6"><input type="submit" value="Connexion"/></div>
+                    <div class="mt-3 mb-5 col-2 offset-lg-3 offset-md-6 offset-sm-6"><input type="submit" value="Connexion" class="btn btn-outline-primary"/></div>
 
                 </form>
 
@@ -51,6 +51,6 @@
     </div>
 
 </section>
-
+<div th:insert="~{fragments/footerFragment.html}"></div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/headerFragment :: header}"></div>
-    <section>
+    <section class="min-vh-100">
 
         <div class="my-5">
 
@@ -28,9 +28,6 @@
                 </button>
             </a>
 
-            <a sec:authorize="hasAuthority('Admin')"  th:href="@{/admin}"><button  class="px-2">Acces admin</button></a>
-
-
 
             <br>
             <h2 class="text-light my-5 ms-3"> Deconnexion sans confirmation (avec methode POST)</h2>
@@ -43,10 +40,16 @@
 
                 <button class="mx-5 px-2" type="submit">Me déconnecter !</button>
             </form>
+
+            <br>
+            <h2 class="text-light my-5 ms-3"> Accès espace Administrateur </h2>
+
+            <a sec:authorize="hasAuthority('Admin')"  th:href="@{/admin}"><button  class="px-2 ms-5">Acces admin</button></a>
+
         </div>
 
 
     </section>
-
+<div th:insert="~{fragments/footerFragment.html}"></div>
 </body>
 </html>

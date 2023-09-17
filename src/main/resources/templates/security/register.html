@@ -7,7 +7,8 @@
     </head>
     <body>
     <div th:replace="~{fragments/headerFragment :: header}"></div>
-        <div>
+
+        <section class="min-vh-100">
 
             <h1 class="text-light my-5 ms-3">Créer un compte </h1>
 
@@ -38,31 +39,33 @@
                             <!------------------------------Formulaire--------------------------------------->
                             <div class="form-group col-lg-4 col-md-8 col-sm-8">
                                 <label class="form-label mt-4"  for="username">Username</label>
-                                <input id="username" type="text" th:field="*{username}" th:value="*{username}" />
+                                <input class="form-control" id="username" type="text" th:field="*{username}" th:value="*{username}" />
                                 <div th:if="${userExist}">Ce nom d'utilisateur existe déjà...</div>
                             </div>
 
                             <div class="form-group col-lg-4 col-md-8 col-sm-8">
                                 <label class="form-label mt-4"  for="firstname">firstname</label>
-                                <input id="firstname" type="text" th:field="*{firstname}" th:value="*{firstname}"/>
+                                <input class="form-control" id="firstname" type="text" th:field="*{firstname}" th:value="*{firstname}"/>
                             </div>
 
                             <div class="form-group col-lg-4 col-md-8 col-sm-8">
                                 <label class="form-label mt-4"  for="lastname">lastname</label>
-                                <input id="lastname" type="text" th:field="*{lastname}" th:value="*{lastname}"/>
+                                <input class="form-control" id="lastname" type="text" th:field="*{lastname}" th:value="*{lastname}"/>
                             </div>
 
                             <div class="form-group col-lg-4 col-md-8 col-sm-8">
                                 <label class="form-label mt-4"  for="password">password</label>
-                                <input id="password" type="password" th:field="*{password}" th:value="*{password}"/>
+                                <input class="form-control" id="password" type="password" th:field="*{password}" th:value="*{password}"/>
                             </div>
 
                             <div class="form-group col-lg-4 col-md-8 col-sm-8">
                                 <label class="form-label mt-4"  for="confirmPassword">password confirm</label>
-                                <input id="confirmPassword" type="password" th:field="*{confirmPassword}"  th:value="*{confirmPassword}"/>
+                                <input class="form-control" id="confirmPassword" type="password" th:field="*{confirmPassword}"  th:value="*{confirmPassword}"/>
                             </div>
 
-                            <button type="submit">Valider</button>
+                            <div class="mt-5">
+                                <button class="btn btn-outline-primary" type="submit">Valider</button>
+                            </div>
 
                         </form>
 
@@ -70,6 +73,7 @@
                 </div>
             </div>
 
-        </div>
+        </section>
+    <div th:insert="~{fragments/footerFragment.html}"></div>
     </body>
 </html>
